@@ -1657,6 +1657,267 @@
 				)
 			)
 		)
+		(symbol "Switch:SW_Slide_DPDT"
+			(pin_names
+				(offset 0) hide)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(property "Reference" "SW"
+				(at 0 6.858 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "SW_Slide_DPDT"
+				(at 0 -8.128 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" ""
+				(at 13.97 5.08 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" "~"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Description" "Slide Switch, dual pole double throw"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_keywords" "switch dual-pole double-throw dpdt ON-ON"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(symbol "SW_Slide_DPDT_0_0"
+				(circle
+					(center -2.032 -5.08)
+					(radius 0.508)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(circle
+					(center -2.032 5.08)
+					(radius 0.508)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(circle
+					(center 2.032 -5.08)
+					(radius 0.508)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(circle
+					(center 2.032 0)
+					(radius 0.508)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+			)
+			(symbol "SW_Slide_DPDT_0_1"
+				(circle
+					(center -2.032 0)
+					(radius 0.508)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(circle
+					(center 2.032 5.08)
+					(radius 0.508)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+			)
+			(symbol "SW_Slide_DPDT_1_1"
+				(rectangle
+					(start -1.397 5.588)
+					(end -0.762 -0.508)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type outline)
+					)
+				)
+				(rectangle
+					(start 0.762 5.588)
+					(end 1.397 -0.508)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type outline)
+					)
+				)
+				(pin passive line
+					(at -5.08 5.08 0)
+					(length 2.54)
+					(name "A"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at -5.08 0 0)
+					(length 2.54)
+					(name "B"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at -5.08 -5.08 0)
+					(length 2.54)
+					(name "C"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "3"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 5.08 -5.08 180)
+					(length 2.54)
+					(name "A"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "4"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 5.08 0 180)
+					(length 2.54)
+					(name "B"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "5"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 5.08 5.08 180)
+					(length 2.54)
+					(name "C"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "6"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+		)
 		(symbol "Transistor_FET:BSS138"
 			(pin_names hide)
 			(exclude_from_sim no)
@@ -3001,6 +3262,12 @@
 		(uuid "0e439510-469e-40ec-ac88-43e275b33b42")
 	)
 	(junction
+		(at 55.88 218.44)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "1478e91b-c9d7-4530-b4dd-ad86a2f95393")
+	)
+	(junction
 		(at 63.5 177.8)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -3011,6 +3278,18 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "2baa5a44-52ba-42cd-99e9-e3cd8a240cc7")
+	)
+	(junction
+		(at 73.66 215.9)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "362309d1-61ad-4df3-b638-af9aa87a23e3")
+	)
+	(junction
+		(at 58.42 210.82)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "43300b59-9aa1-4eff-8eb8-da2099104be8")
 	)
 	(junction
 		(at 53.34 220.98)
@@ -3616,6 +3895,16 @@
 	)
 	(wire
 		(pts
+			(xy 71.12 220.98) (xy 73.66 220.98)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "13ca0fab-eb7a-478b-95ab-a1dba5369514")
+	)
+	(wire
+		(pts
 			(xy 279.4 25.4) (xy 279.4 27.94)
 		)
 		(stroke
@@ -3723,6 +4012,16 @@
 			(type default)
 		)
 		(uuid "1736f944-76d2-418c-b725-89c93b6117dc")
+	)
+	(wire
+		(pts
+			(xy 58.42 210.82) (xy 58.42 215.9)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "175da8b1-3936-4e3f-9e4b-8de7b1b77ef3")
 	)
 	(wire
 		(pts
@@ -4376,7 +4675,7 @@
 	)
 	(wire
 		(pts
-			(xy 53.34 215.9) (xy 49.53 215.9)
+			(xy 49.53 215.9) (xy 55.88 215.9)
 		)
 		(stroke
 			(width 0)
@@ -4576,16 +4875,6 @@
 	)
 	(wire
 		(pts
-			(xy 53.34 213.36) (xy 53.34 215.9)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "3a225ff1-b28e-433e-a781-4123019800c1")
-	)
-	(wire
-		(pts
 			(xy 49.53 99.06) (xy 52.07 99.06)
 		)
 		(stroke
@@ -4753,6 +5042,16 @@
 			(type default)
 		)
 		(uuid "430fc3d4-7ed5-4b49-9392-414dddfa2484")
+	)
+	(wire
+		(pts
+			(xy 58.42 208.28) (xy 58.42 210.82)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "43538a91-f28a-4a74-935f-fdd7265546ab")
 	)
 	(wire
 		(pts
@@ -5856,6 +6155,16 @@
 	)
 	(wire
 		(pts
+			(xy 55.88 218.44) (xy 72.39 218.44)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "77db9e06-dcb2-46fc-80e5-8c83118b176c")
+	)
+	(wire
+		(pts
 			(xy 152.4 25.4) (xy 152.4 27.94)
 		)
 		(stroke
@@ -6386,6 +6695,16 @@
 	)
 	(wire
 		(pts
+			(xy 71.12 210.82) (xy 72.39 210.82)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "8da14c8b-c581-4e5e-b83a-256d4ab57c73")
+	)
+	(wire
+		(pts
 			(xy 266.7 336.55) (xy 271.78 336.55)
 		)
 		(stroke
@@ -6503,6 +6822,16 @@
 			(type default)
 		)
 		(uuid "9235d5e2-e8df-4c44-b0d0-58f3287d7ef8")
+	)
+	(wire
+		(pts
+			(xy 73.66 208.28) (xy 73.66 215.9)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "92483ab2-77ee-4c81-8c3b-41e8079905f1")
 	)
 	(wire
 		(pts
@@ -6663,6 +6992,16 @@
 			(type default)
 		)
 		(uuid "98b18a5f-40e9-4a54-93fa-5bd7eb0f0eb8")
+	)
+	(wire
+		(pts
+			(xy 73.66 220.98) (xy 73.66 215.9)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "98f5f697-14ad-4c2c-879a-e7d2fe4f5d2a")
 	)
 	(wire
 		(pts
@@ -7226,6 +7565,16 @@
 	)
 	(wire
 		(pts
+			(xy 58.42 210.82) (xy 60.96 210.82)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "b1ee7dd3-5acd-48be-b840-5729504df5d8")
+	)
+	(wire
+		(pts
 			(xy 431.8 266.7) (xy 431.8 269.24)
 		)
 		(stroke
@@ -7313,6 +7662,16 @@
 			(type default)
 		)
 		(uuid "b58faeec-ac0f-46a9-9e86-bd6ac8a455c2")
+	)
+	(wire
+		(pts
+			(xy 72.39 210.82) (xy 72.39 218.44)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "b5ca1822-98f5-44b4-8bb8-2deac72c62ee")
 	)
 	(wire
 		(pts
@@ -7856,6 +8215,16 @@
 	)
 	(wire
 		(pts
+			(xy 55.88 218.44) (xy 55.88 215.9)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "d1c4e855-67a3-4f8e-9750-b77fff188813")
+	)
+	(wire
+		(pts
 			(xy 457.2 302.26) (xy 457.2 307.34)
 		)
 		(stroke
@@ -7983,6 +8352,16 @@
 			(type default)
 		)
 		(uuid "d81008a1-6740-4e22-9d61-bd9b2b3d5425")
+	)
+	(wire
+		(pts
+			(xy 55.88 220.98) (xy 55.88 218.44)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "d8192a7c-89c4-4006-ab5b-70f6aae0a563")
 	)
 	(wire
 		(pts
@@ -8163,6 +8542,16 @@
 			(type default)
 		)
 		(uuid "e05405d1-1132-493c-a327-4d830e987a26")
+	)
+	(wire
+		(pts
+			(xy 71.12 215.9) (xy 73.66 215.9)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "e06b061f-4a4b-4c03-88b5-23041eb71def")
 	)
 	(wire
 		(pts
@@ -8626,6 +9015,16 @@
 	)
 	(wire
 		(pts
+			(xy 58.42 215.9) (xy 60.96 215.9)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "f241d30a-5a94-4648-abe6-fb1eccb9efc0")
+	)
+	(wire
+		(pts
 			(xy 314.96 396.24) (xy 314.96 364.49)
 		)
 		(stroke
@@ -8663,6 +9062,16 @@
 			(type default)
 		)
 		(uuid "f35ef42a-13fe-4cd4-8dc0-3aa50a6a2c90")
+	)
+	(wire
+		(pts
+			(xy 60.96 220.98) (xy 55.88 220.98)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "f3caed9d-0e7c-41f9-b107-6367a3da997c")
 	)
 	(wire
 		(pts
@@ -10432,6 +10841,86 @@
 		)
 	)
 	(symbol
+		(lib_id "Switch:SW_Slide_DPDT")
+		(at 66.04 215.9 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "09e9ae37-5cb1-40d1-9d3d-3e8a95efaf26")
+		(property "Reference" "SW6"
+			(at 66.04 205.74 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "SW_Slide_DPDT"
+			(at 66.04 208.28 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Button_Switch_THT:SW_E-Switch_EG1271_SPDT"
+			(at 80.01 210.82 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 66.04 215.9 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Slide Switch, dual pole double throw"
+			(at 66.04 215.9 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "5155314a-82c7-40dd-bf95-d1d5152005ae")
+		)
+		(pin "3"
+			(uuid "66cb9cf8-354e-477b-b5f2-f718ad2b70bc")
+		)
+		(pin "5"
+			(uuid "160937ee-6451-4f2c-b7a0-3332d0b3ef80")
+		)
+		(pin "6"
+			(uuid "5fcd702a-bfe0-46e1-8300-f2934b60b311")
+		)
+		(pin "2"
+			(uuid "d3a19a62-7c76-4a3b-bf1a-5f301a670d36")
+		)
+		(pin "4"
+			(uuid "b010f7a0-c3d0-4301-b4d5-d0e697687670")
+		)
+		(instances
+			(project ""
+				(path "/df28554b-63e4-448f-bfa5-188c38596428"
+					(reference "SW6")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "Device:R")
 		(at 431.8 273.05 0)
 		(unit 1)
@@ -10505,6 +10994,72 @@
 			(project "2U-NTP-Clock"
 				(path "/df28554b-63e4-448f-bfa5-188c38596428"
 					(reference "R39")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:+12V")
+		(at 58.42 208.28 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "0dcd06b4-f3f7-4c0b-af12-2bef918a9e4d")
+		(property "Reference" "#PWR0107"
+			(at 58.42 212.09 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "+12V"
+			(at 58.42 203.2 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 58.42 208.28 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 58.42 208.28 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"+12V\""
+			(at 58.42 208.28 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "4edd8d69-9397-494e-a194-9e17c6e7417a")
+		)
+		(instances
+			(project "2U-NTP-Clock"
+				(path "/df28554b-63e4-448f-bfa5-188c38596428"
+					(reference "#PWR0107")
 					(unit 1)
 				)
 			)
@@ -21902,72 +22457,6 @@
 			(project "2U-NTP-Clock"
 				(path "/df28554b-63e4-448f-bfa5-188c38596428"
 					(reference "#PWR073")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:+12V")
-		(at 53.34 213.36 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "69b28986-cad1-4dc3-9bde-124eb597e6b2")
-		(property "Reference" "#PWR0107"
-			(at 53.34 217.17 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "+12V"
-			(at 53.34 208.28 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 53.34 213.36 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 53.34 213.36 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"+12V\""
-			(at 53.34 213.36 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "92a562e2-c280-4d21-a4f7-d16dc90d1f56")
-		)
-		(instances
-			(project "2U-NTP-Clock"
-				(path "/df28554b-63e4-448f-bfa5-188c38596428"
-					(reference "#PWR0107")
 					(unit 1)
 				)
 			)
@@ -33778,6 +34267,72 @@
 			(project "2U-NTP-Clock"
 				(path "/df28554b-63e4-448f-bfa5-188c38596428"
 					(reference "D69")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:+12V")
+		(at 73.66 208.28 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "d58792a2-74dd-4ab5-9f70-939012e904ea")
+		(property "Reference" "#PWR0114"
+			(at 73.66 212.09 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "+12V"
+			(at 73.66 203.2 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 73.66 208.28 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 73.66 208.28 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"+12V\""
+			(at 73.66 208.28 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "77cfe9a1-7725-461a-ae9c-5300a6e2a88d")
+		)
+		(instances
+			(project "2U-NTP-Clock"
+				(path "/df28554b-63e4-448f-bfa5-188c38596428"
+					(reference "#PWR0114")
 					(unit 1)
 				)
 			)
