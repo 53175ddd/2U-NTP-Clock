@@ -1512,6 +1512,151 @@
 				)
 			)
 		)
+		(symbol "Switch:SW_Push"
+			(pin_numbers hide)
+			(pin_names
+				(offset 1.016) hide)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(property "Reference" "SW"
+				(at 1.27 2.54 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left)
+				)
+			)
+			(property "Value" "SW_Push"
+				(at 0 -1.524 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" ""
+				(at 0 5.08 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" "~"
+				(at 0 5.08 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Description" "Push button switch, generic, two pins"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_keywords" "switch normally-open pushbutton push-button"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(symbol "SW_Push_0_1"
+				(circle
+					(center -2.032 0)
+					(radius 0.508)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 0 1.27) (xy 0 3.048)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 2.54 1.27) (xy -2.54 1.27)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(circle
+					(center 2.032 0)
+					(radius 0.508)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(pin passive line
+					(at -5.08 0 0)
+					(length 2.54)
+					(name "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 5.08 0 180)
+					(length 2.54)
+					(name "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+		)
 		(symbol "Transistor_FET:BSS138"
 			(pin_names hide)
 			(exclude_from_sim no)
@@ -2868,6 +3013,12 @@
 		(uuid "2baa5a44-52ba-42cd-99e9-e3cd8a240cc7")
 	)
 	(junction
+		(at 53.34 220.98)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "4524f107-552d-42a5-928f-68b3b9d35b46")
+	)
+	(junction
 		(at 83.82 128.27)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -2932,12 +3083,6 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "a7a58b68-9090-4a9b-a5b6-b93f53197a52")
-	)
-	(junction
-		(at 53.34 215.9)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "a8379c85-955f-4606-b3f3-c338a61ce85e")
 	)
 	(junction
 		(at 86.36 243.84)
@@ -3521,6 +3666,16 @@
 	)
 	(wire
 		(pts
+			(xy 49.53 254) (xy 57.15 254)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "15974fa8-3959-4418-a331-0c74e352108e")
+	)
+	(wire
+		(pts
 			(xy 342.9 152.4) (xy 307.34 152.4)
 		)
 		(stroke
@@ -4021,6 +4176,16 @@
 	)
 	(wire
 		(pts
+			(xy 38.1 58.42) (xy 30.48 58.42)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "2cfad42c-f075-4ccd-9e22-1d82b20906ef")
+	)
+	(wire
+		(pts
 			(xy 457.2 341.63) (xy 457.2 342.9)
 		)
 		(stroke
@@ -4158,6 +4323,16 @@
 			(type default)
 		)
 		(uuid "32762bb0-5bda-4e2d-9104-7d6240a9dea6")
+	)
+	(wire
+		(pts
+			(xy 38.1 279.4) (xy 39.37 279.4)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "32b4448d-a957-48b3-8837-74853d8fad4f")
 	)
 	(wire
 		(pts
@@ -4331,6 +4506,16 @@
 	)
 	(wire
 		(pts
+			(xy 38.1 254) (xy 39.37 254)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "3969b224-0615-48e0-9c56-3805d9066635")
+	)
+	(wire
+		(pts
 			(xy 228.6 341.63) (xy 228.6 342.9)
 		)
 		(stroke
@@ -4358,6 +4543,16 @@
 			(type default)
 		)
 		(uuid "39ceb1c2-8b9e-4132-881a-6b950d7b62c7")
+	)
+	(wire
+		(pts
+			(xy 38.1 55.88) (xy 30.48 55.88)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "39cf201b-6c3c-46ad-972d-2adb133dac51")
 	)
 	(wire
 		(pts
@@ -4771,6 +4966,16 @@
 	)
 	(wire
 		(pts
+			(xy 53.34 218.44) (xy 53.34 220.98)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "4b9ba527-658f-4d85-8f60-60c4f8945b72")
+	)
+	(wire
+		(pts
 			(xy 508 156.21) (xy 508 161.29)
 		)
 		(stroke
@@ -4838,16 +5043,6 @@
 			(type default)
 		)
 		(uuid "4dec7198-50ff-4150-b7b9-0576d26a351e")
-	)
-	(wire
-		(pts
-			(xy 53.34 218.44) (xy 53.34 215.9)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "4e6e103c-16be-4d95-be02-988407a2b349")
 	)
 	(wire
 		(pts
@@ -5451,6 +5646,16 @@
 	)
 	(wire
 		(pts
+			(xy 38.1 269.24) (xy 38.1 266.7)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "6f884f03-543d-4194-a5eb-3c352434f43e")
+	)
+	(wire
+		(pts
 			(xy 215.9 128.27) (xy 215.9 95.25)
 		)
 		(stroke
@@ -5578,6 +5783,16 @@
 			(type default)
 		)
 		(uuid "746ece21-ef27-498b-b3af-9a525154a801")
+	)
+	(wire
+		(pts
+			(xy 38.1 292.1) (xy 39.37 292.1)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "74760cc9-1542-49b6-a0b1-b35fa3623cfc")
 	)
 	(wire
 		(pts
@@ -6151,6 +6366,16 @@
 	)
 	(wire
 		(pts
+			(xy 38.1 66.04) (xy 30.48 66.04)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "8c7ebd49-1bae-45b1-992e-a54dec44208f")
+	)
+	(wire
+		(pts
 			(xy 406.4 48.26) (xy 406.4 53.34)
 		)
 		(stroke
@@ -6301,6 +6526,16 @@
 	)
 	(wire
 		(pts
+			(xy 38.1 63.5) (xy 30.48 63.5)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "936fa7e6-15bb-4872-a158-17b8a5aa8d05")
+	)
+	(wire
+		(pts
 			(xy 78.74 120.65) (xy 78.74 88.9)
 		)
 		(stroke
@@ -6358,6 +6593,16 @@
 			(type default)
 		)
 		(uuid "9526c2cd-9907-4f44-83bd-dad6b90c3623")
+	)
+	(wire
+		(pts
+			(xy 49.53 292.1) (xy 57.15 292.1)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "96aff4d9-d560-4869-80b6-647c687205d0")
 	)
 	(wire
 		(pts
@@ -6528,6 +6773,16 @@
 			(type default)
 		)
 		(uuid "9bf30c3b-6928-4446-8e58-2c9a770b609b")
+	)
+	(wire
+		(pts
+			(xy 38.1 266.7) (xy 39.37 266.7)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "9c7555e5-84c8-4ee5-b2fe-6bc29c954929")
 	)
 	(wire
 		(pts
@@ -6801,6 +7056,16 @@
 	)
 	(wire
 		(pts
+			(xy 38.1 281.94) (xy 38.1 279.4)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "abf64251-7c08-487e-98c7-87d6214bcde8")
+	)
+	(wire
+		(pts
 			(xy 482.6 25.4) (xy 482.6 27.94)
 		)
 		(stroke
@@ -6808,6 +7073,16 @@
 			(type default)
 		)
 		(uuid "ac5e4907-3014-4bea-8424-81c8d89836d9")
+	)
+	(wire
+		(pts
+			(xy 49.53 304.8) (xy 57.15 304.8)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "ac8b0606-9dfe-4ded-830d-cdf8a1897f8c")
 	)
 	(wire
 		(pts
@@ -7501,6 +7776,16 @@
 	)
 	(wire
 		(pts
+			(xy 38.1 256.54) (xy 38.1 254)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "cb26523c-0221-4838-b8ce-771084e0f062")
+	)
+	(wire
+		(pts
 			(xy 469.9 375.92) (xy 533.4 375.92)
 		)
 		(stroke
@@ -7578,6 +7863,16 @@
 			(type default)
 		)
 		(uuid "d1d00759-b551-4438-ad3c-c988aee99bce")
+	)
+	(wire
+		(pts
+			(xy 38.1 294.64) (xy 38.1 292.1)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "d205fede-6482-4769-a5af-e12fa6ad63fe")
 	)
 	(wire
 		(pts
@@ -7738,6 +8033,16 @@
 			(type default)
 		)
 		(uuid "d9fd9a23-0dbe-4189-b3be-7f75e3e68e9f")
+	)
+	(wire
+		(pts
+			(xy 38.1 307.34) (xy 38.1 304.8)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "da1aa102-a78a-457c-a66a-0a3a0343c8b7")
 	)
 	(wire
 		(pts
@@ -7951,6 +8256,16 @@
 	)
 	(wire
 		(pts
+			(xy 49.53 279.4) (xy 57.15 279.4)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "e37d6ca5-f13b-4d2a-8ea5-a687b29032a7")
+	)
+	(wire
+		(pts
 			(xy 203.2 168.91) (xy 203.2 173.99)
 		)
 		(stroke
@@ -8071,6 +8386,16 @@
 	)
 	(wire
 		(pts
+			(xy 38.1 304.8) (xy 39.37 304.8)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "e94a8add-efee-4e17-a22b-8ea6ada49e80")
+	)
+	(wire
+		(pts
 			(xy 203.2 146.05) (xy 203.2 148.59)
 		)
 		(stroke
@@ -8078,6 +8403,16 @@
 			(type default)
 		)
 		(uuid "e97aeb16-29ff-4e3c-a0df-168d724902d8")
+	)
+	(wire
+		(pts
+			(xy 49.53 266.7) (xy 57.15 266.7)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "e9df0f5f-b8ba-43cb-b0aa-47cb88504148")
 	)
 	(wire
 		(pts
@@ -8571,6 +8906,16 @@
 	)
 	(wire
 		(pts
+			(xy 38.1 60.96) (xy 30.48 60.96)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "fdd7ae21-2727-4432-a7bb-c93da0ade1c7")
+	)
+	(wire
+		(pts
 			(xy 254 25.4) (xy 254 27.94)
 		)
 		(stroke
@@ -8609,6 +8954,26 @@
 		)
 		(uuid "ffda231c-c42d-46a9-9fb9-22671ec01c7c")
 	)
+	(label "RIGHT"
+		(at 57.15 279.4 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "04a9dbaa-3428-4f83-9f9c-e90e1dc29843")
+	)
+	(label "DOWN"
+		(at 57.15 292.1 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "0959d27e-b6f2-4e6a-b879-cfd93bdaf3a8")
+	)
 	(label "RCLK"
 		(at 67.31 83.82 0)
 		(effects
@@ -8618,6 +8983,26 @@
 			(justify left bottom)
 		)
 		(uuid "0a95b9c1-0020-46ee-95b2-203720ce4d95")
+	)
+	(label "LEFT"
+		(at 57.15 304.8 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "1209959b-fc95-40bc-a208-118d7385907b")
+	)
+	(label "UP"
+		(at 57.15 266.7 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "2e59de04-cc8d-4869-8972-f8dcbe252a97")
 	)
 	(label "SRCLR"
 		(at 67.31 78.74 0)
@@ -8649,6 +9034,46 @@
 		)
 		(uuid "88d96264-d882-4d2c-b823-f25994aad7af")
 	)
+	(label "UP"
+		(at 30.48 66.04 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "8f646a16-efc2-4e49-a9f3-9ec7c956e80b")
+	)
+	(label "DOWN"
+		(at 30.48 55.88 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "aa3fe69d-6459-4d3e-8ea3-fe7588629564")
+	)
+	(label "RIGHT"
+		(at 30.48 63.5 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "aa7bf95f-c8d0-45fa-831d-67c35d8a5362")
+	)
+	(label "OK"
+		(at 30.48 60.96 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "ad4c63e5-1984-4d50-8f1b-0f7c2c831afa")
+	)
 	(label "SRCLK"
 		(at 67.31 88.9 0)
 		(effects
@@ -8658,6 +9083,26 @@
 			(justify left bottom)
 		)
 		(uuid "b4785d04-016d-437d-9149-f2a5527bf92e")
+	)
+	(label "LEFT"
+		(at 30.48 58.42 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "b6cbadbf-372a-431e-96ff-b78d2ddc90d7")
+	)
+	(label "OK"
+		(at 57.15 254 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "f6ef0282-fa67-4b01-84ad-d0522e969e9a")
 	)
 	(global_label "SQ"
 		(shape input)
@@ -9076,6 +9521,75 @@
 			(project "2U-NTP-Clock"
 				(path "/df28554b-63e4-448f-bfa5-188c38596428"
 					(reference "#PWR075")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Switch:SW_Push")
+		(at 44.45 254 0)
+		(mirror y)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "01261a0d-0870-4f13-9286-554b96771978")
+		(property "Reference" "SW1"
+			(at 44.45 246.38 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "SW_Push"
+			(at 44.45 248.92 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Button_Switch_THT:SW_PUSH_6mm"
+			(at 44.45 248.92 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 44.45 248.92 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Push button switch, generic, two pins"
+			(at 44.45 254 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "64553b1e-2b53-4296-ba79-3cea2f096671")
+		)
+		(pin "2"
+			(uuid "6307116d-3584-4ca6-81b4-950d7550a022")
+		)
+		(instances
+			(project ""
+				(path "/df28554b-63e4-448f-bfa5-188c38596428"
+					(reference "SW1")
 					(unit 1)
 				)
 			)
@@ -13406,6 +13920,73 @@
 		)
 	)
 	(symbol
+		(lib_id "power:GND")
+		(at 38.1 256.54 0)
+		(mirror y)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "27ed73b3-b877-466c-ad77-3eb6d629feca")
+		(property "Reference" "#PWR0109"
+			(at 38.1 262.89 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 38.1 261.62 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 38.1 256.54 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 38.1 256.54 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 38.1 256.54 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "29c3ce94-1362-4bde-ac43-75263e839d62")
+		)
+		(instances
+			(project "2U-NTP-Clock"
+				(path "/df28554b-63e4-448f-bfa5-188c38596428"
+					(reference "#PWR0109")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "Device:LED")
 		(at 381 44.45 90)
 		(unit 1)
@@ -13933,6 +14514,73 @@
 			(project "2U-NTP-Clock"
 				(path "/df28554b-63e4-448f-bfa5-188c38596428"
 					(reference "Q14")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 38.1 281.94 0)
+		(mirror y)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "2ca02b26-6329-4cf4-af31-16cbe3e1d573")
+		(property "Reference" "#PWR0111"
+			(at 38.1 288.29 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 38.1 287.02 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 38.1 281.94 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 38.1 281.94 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 38.1 281.94 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "abf0e5f6-841a-4de4-a5db-c868c2fd0b93")
+		)
+		(instances
+			(project "2U-NTP-Clock"
+				(path "/df28554b-63e4-448f-bfa5-188c38596428"
+					(reference "#PWR0111")
 					(unit 1)
 				)
 			)
@@ -15238,6 +15886,75 @@
 			(project "2U-NTP-Clock"
 				(path "/df28554b-63e4-448f-bfa5-188c38596428"
 					(reference "D67")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Switch:SW_Push")
+		(at 44.45 266.7 0)
+		(mirror y)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "3240f6c6-3d2e-4822-bbfc-146b54919210")
+		(property "Reference" "SW2"
+			(at 44.45 259.08 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "SW_Push"
+			(at 44.45 261.62 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Button_Switch_THT:SW_PUSH_6mm"
+			(at 44.45 261.62 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 44.45 261.62 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Push button switch, generic, two pins"
+			(at 44.45 266.7 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "d7e93cc2-9d95-4105-babb-2a1c6f0ab21c")
+		)
+		(pin "2"
+			(uuid "dc35b639-7fed-4bed-911c-7206803ddc64")
+		)
+		(instances
+			(project "2U-NTP-Clock"
+				(path "/df28554b-63e4-448f-bfa5-188c38596428"
+					(reference "SW2")
 					(unit 1)
 				)
 			)
@@ -25010,6 +25727,73 @@
 		)
 	)
 	(symbol
+		(lib_id "power:GND")
+		(at 38.1 294.64 0)
+		(mirror y)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "8ed76f99-7713-4343-a63a-ddb5ed7d327c")
+		(property "Reference" "#PWR0112"
+			(at 38.1 300.99 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 38.1 299.72 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 38.1 294.64 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 38.1 294.64 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 38.1 294.64 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "337e31b4-4706-4451-9b88-3f376575cbba")
+		)
+		(instances
+			(project "2U-NTP-Clock"
+				(path "/df28554b-63e4-448f-bfa5-188c38596428"
+					(reference "#PWR0112")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "power:+5V")
 		(at 152.4 266.7 0)
 		(unit 1)
@@ -26355,6 +27139,75 @@
 			(project "2U-NTP-Clock"
 				(path "/df28554b-63e4-448f-bfa5-188c38596428"
 					(reference "U3")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Switch:SW_Push")
+		(at 44.45 292.1 0)
+		(mirror y)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "9b048e19-0e1d-475e-8913-6573e0f17f92")
+		(property "Reference" "SW4"
+			(at 44.45 284.48 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "SW_Push"
+			(at 44.45 287.02 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Button_Switch_THT:SW_PUSH_6mm"
+			(at 44.45 287.02 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 44.45 287.02 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Push button switch, generic, two pins"
+			(at 44.45 292.1 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "66b31484-10df-4679-bcab-09bb2cd217c5")
+		)
+		(pin "2"
+			(uuid "f92ab711-90ee-406b-8909-39cb728ccc0a")
+		)
+		(instances
+			(project "2U-NTP-Clock"
+				(path "/df28554b-63e4-448f-bfa5-188c38596428"
+					(reference "SW4")
 					(unit 1)
 				)
 			)
@@ -30209,6 +31062,75 @@
 		)
 	)
 	(symbol
+		(lib_id "Switch:SW_Push")
+		(at 44.45 279.4 0)
+		(mirror y)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "c050af77-cc8c-448e-9ff3-b7e37757c23d")
+		(property "Reference" "SW3"
+			(at 44.45 271.78 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "SW_Push"
+			(at 44.45 274.32 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Button_Switch_THT:SW_PUSH_6mm"
+			(at 44.45 274.32 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 44.45 274.32 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Push button switch, generic, two pins"
+			(at 44.45 279.4 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "5c97e4f4-6c9e-40e1-908d-9c72bb559417")
+		)
+		(pin "2"
+			(uuid "917e22cf-96ea-44ce-be6a-e93864600bf1")
+		)
+		(instances
+			(project "2U-NTP-Clock"
+				(path "/df28554b-63e4-448f-bfa5-188c38596428"
+					(reference "SW3")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "power:+5V")
 		(at 203.2 266.7 0)
 		(unit 1)
@@ -33606,6 +34528,73 @@
 		)
 	)
 	(symbol
+		(lib_id "power:GND")
+		(at 38.1 307.34 0)
+		(mirror y)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "ddb96ce3-469a-499c-98d6-754c0a512dfb")
+		(property "Reference" "#PWR0113"
+			(at 38.1 313.69 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 38.1 312.42 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 38.1 307.34 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 38.1 307.34 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 38.1 307.34 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "2b765b0a-d083-4b89-b56d-e2068881b978")
+		)
+		(instances
+			(project "2U-NTP-Clock"
+				(path "/df28554b-63e4-448f-bfa5-188c38596428"
+					(reference "#PWR0113")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "Device:LED")
 		(at 546.1 285.75 90)
 		(unit 1)
@@ -36272,6 +37261,73 @@
 		)
 	)
 	(symbol
+		(lib_id "power:GND")
+		(at 38.1 269.24 0)
+		(mirror y)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "f7d8be07-15cc-4305-9c10-e3760991a501")
+		(property "Reference" "#PWR0110"
+			(at 38.1 275.59 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 38.1 274.32 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 38.1 269.24 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 38.1 269.24 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 38.1 269.24 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "451d5f79-9047-4944-800b-80c9cfe0f69a")
+		)
+		(instances
+			(project "2U-NTP-Clock"
+				(path "/df28554b-63e4-448f-bfa5-188c38596428"
+					(reference "#PWR0110")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "Device:R")
 		(at 203.2 273.05 0)
 		(unit 1)
@@ -37154,6 +38210,75 @@
 			(project "2U-NTP-Clock"
 				(path "/df28554b-63e4-448f-bfa5-188c38596428"
 					(reference "D172")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Switch:SW_Push")
+		(at 44.45 304.8 0)
+		(mirror y)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "fb7874ca-76ef-42df-bae8-77f300afd89e")
+		(property "Reference" "SW5"
+			(at 44.45 297.18 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "SW_Push"
+			(at 44.45 299.72 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Button_Switch_THT:SW_PUSH_6mm"
+			(at 44.45 299.72 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 44.45 299.72 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Push button switch, generic, two pins"
+			(at 44.45 304.8 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "55f44050-dfda-499c-a3f7-07b4de515a99")
+		)
+		(pin "2"
+			(uuid "cea9f65a-c825-49ac-8d36-e1e3890c296b")
+		)
+		(instances
+			(project "2U-NTP-Clock"
+				(path "/df28554b-63e4-448f-bfa5-188c38596428"
+					(reference "SW5")
 					(unit 1)
 				)
 			)
