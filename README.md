@@ -49,7 +49,9 @@ Git コマンドあるいは GitHub Desktop などを用いて GitHub リポジ�
 以下のような記述があるので，それをお使いの環境に合わせて変更します．
 
 ```cpp
-// "" の中身を変更してください．
+/* Wi-Fi アクセスポイントの設定 */
+/* "" の中身を変更してください． */
+
 char ssid[] = "YOUR-SSID-HERE";
 char psk[]  = "YOUR-PSK-HERE";
 ```
