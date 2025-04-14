@@ -2,4 +2,5 @@
   (version 7)
   (lib (name "RTC")(type "KiCad")(uri "${KIPRJMOD}/my/RTC.kicad_sym")(options "")(descr ""))
   (lib (name "stamp")(type "KiCad")(uri "${KIPRJMOD}/my/stamp.kicad_sym")(options "")(descr ""))
+  (lib (name "eth")(type "KiCad")(uri "${KIPRJMOD}/eth.kicad_sym")(options "")(descr ""))
 )
