@@ -37259,7 +37259,7 @@
 				)
 			)
 		)
-		(property "LCSC" "C6903803"
+		(property "LCSC" "C14663"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -55496,7 +55496,7 @@
 			(uuid "fbfa74ef-2cc4-43fc-aef0-3c7b74bf62bf")
 		)
 		(fp_text user "${REFERENCE}"
-			(at 0 6.35 360)
+			(at 0 6.35 0)
 			(layer "F.Fab")
 			(uuid "a7f1f796-c074-48d6-9c23-9e158072294d")
 			(effects
