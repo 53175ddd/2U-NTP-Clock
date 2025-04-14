@@ -2,4 +2,5 @@
   (version 7)
   (lib (name "TinyRTC")(type "KiCad")(uri "${KIPRJMOD}/my/TinyRTC.pretty")(options "")(descr ""))
   (lib (name "stamp")(type "KiCad")(uri "${KIPRJMOD}/my/stamp.pretty")(options "")(descr ""))
+  (lib (name "eth")(type "KiCad")(uri "${KIPRJMOD}/my/eth.pretty")(options "")(descr ""))
 )
