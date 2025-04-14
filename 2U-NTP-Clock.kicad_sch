@@ -11828,7 +11828,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Connector_PinSocket_2.54mm:PinSocket_1x06_P2.54mm_Vertical"
 			(at 83.82 44.45 0)
 			(effects
 				(font
@@ -29694,7 +29694,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "eth:WIZ850io"
 			(at 45.72 334.518 0)
 			(effects
 				(font
