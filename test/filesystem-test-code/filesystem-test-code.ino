@@ -9,8 +9,8 @@
 
 #define BAUDRATE 115200
 
-IPAddress local(192, 168, 1, 254);
-IPAddress gateway(192, 168, 1, 254);
+IPAddress local(192, 168, 32, 254);
+IPAddress gateway(192, 168, 32, 254);
 IPAddress subnet(255, 255, 255, 0);
 
 WebServer server(WEBSERVER_PORT);
