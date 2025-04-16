@@ -1,4 +1,5 @@
 #include <WiFi.h>
+#include <WebServer.h>
 
 /* Wi-Fi アクセスポイントの設定 */
 #define MY_SSID "2U-NTP-Clock-setup"
@@ -12,9 +13,12 @@ IPAddress local(192, 168, 1, 254);
 IPAddress gateway(192, 168, 1, 254);
 IPAddress subnet(255, 255, 255, 0);
 
+WebServer server(WEBSERVER_PORT);
+
 void setup() {
   Serial.begin(BAUDRATE);
   wifi_setup();
+  server_setup();
 }
 
 void loop() {
@@ -43,4 +47,13 @@ void wifi_setup(void) {
   Serial.printf("IP Address of this Access Point : %s\n", WiFi.softAPIP().toString().c_str());
 
   return;
+}
+
+void server_setup(void) {
+  server.on("/", []() {
+    server.send(
+      200,
+      "text/html",
+      "<h1>Hello! Web Server!</h1>");
+  });
 }
