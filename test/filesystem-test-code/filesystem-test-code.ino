@@ -97,8 +97,7 @@ void handleSave() {
     prefs.putString("psk", psk);
     prefs.end();
 
-    String response = "Saved your SSID and PSK.<br><a href=\"/\">Back</a>";
-    server.send(200, "text/html", response);
+    server.send(200, "text/html", "Your SSID and PSK were successfully saved.<br>Prease reboot the system.");
   } else {
     server.send(400, "text/plain", "Invalid Access.");
   }
