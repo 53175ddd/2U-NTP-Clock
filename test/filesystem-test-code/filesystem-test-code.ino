@@ -17,6 +17,7 @@ const char* htmlPage = R"rawliteral(
 <!DOCTYPE html>
 <html>
 <head>
+  <meta charset="UTF-8">
   <title>Welcome to Setup Page!</title>
 </head>
 <body>
