@@ -1,19 +1,43 @@
 #include <WiFi.h>
 #include <WebServer.h>
+#include <Preferences.h>
 
 /* Wi-Fi アクセスポイントの設定 */
 #define MY_SSID "2U-NTP-Clock-setup"
 #define MY_PSK  "esp32setup"
 
+/* Web サーバのポート番号を定義 */
 #define WEBSERVER_PORT 80
 
+/* デバッグ通信の速度を定義 */
 #define BAUDRATE 115200
 
+/* Web ページのテンプレート */
+const char* htmlPage = R"rawliteral(
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Welcome to Setup Page!</title>
+</head>
+<body>
+  <h2>Wi-Fi Connection Setting</h2>
+  <form action="/save" method="POST">
+    SSID: <input type="text" name="ssid"><br>
+    PSK: <input type="password" name="psk"><br>
+    <input type="submit" value="save">
+  </form>
+</body>
+</html>
+)rawliteral";
+
+/* 初期設定時の自身の IP アドレス */
 IPAddress local(192, 168, 32, 254);
 IPAddress gateway(192, 168, 32, 254);
 IPAddress subnet(255, 255, 255, 0);
 
+/* Web サーバ */
 WebServer server(WEBSERVER_PORT);
+Preferences prefs;
 
 void setup() {
   Serial.begin(BAUDRATE);
@@ -22,6 +46,7 @@ void setup() {
 }
 
 void loop() {
+  server.handleClient();
 }
 
 void wifi_setup(void) {
@@ -50,10 +75,28 @@ void wifi_setup(void) {
 }
 
 void server_setup(void) {
-  server.on("/", []() {
-    server.send(
-      200,
-      "text/html",
-      "<h1>Hello! Web Server!</h1>");
-  });
+  server.on("/", handleRoot);
+  server.on("/save", HTTP_POST, handleSave);
+  server.begin();
+}
+
+void handleRoot() {
+  server.send(200, "text/html", htmlPage);
+}
+
+void handleSave() {
+  if (server.hasArg("ssid") && server.hasArg("psk")) {
+    String ssid = server.arg("ssid");
+    String psk = server.arg("psk");
+
+    prefs.begin("wifi", false);
+    prefs.putString("ssid", ssid);
+    prefs.putString("psk", psk);
+    prefs.end();
+
+    String response = "Saved your SSID and PSK.<br><a href=\"/\">Back</a>";
+    server.send(200, "text/html", response);
+  } else {
+    server.send(400, "text/plain", "Invalid Access.");
+  }
 }
