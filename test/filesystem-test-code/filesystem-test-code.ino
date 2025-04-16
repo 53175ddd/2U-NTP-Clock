@@ -90,6 +90,8 @@ void handleSave() {
     String ssid = server.arg("ssid");
     String psk = server.arg("psk");
 
+    Serial.printf("SSID : %s\nPSK  : %s\n", ssid.c_str(), psk.c_str());
+
     prefs.begin("wifi", false);
     prefs.putString("ssid", ssid);
     prefs.putString("psk", psk);
