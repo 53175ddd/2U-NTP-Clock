@@ -38,7 +38,7 @@ IPAddress local(192, 168, 32, 254);
 IPAddress gateway(192, 168, 32, 254);
 IPAddress subnet(255, 255, 255, 0);
 
-/* Web サーバ */
+/* サーバ関係 */
 WebServer server(WEBSERVER_PORT);
 Preferences prefs;
 
