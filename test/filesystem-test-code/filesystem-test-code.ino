@@ -86,15 +86,17 @@ void handleRoot() {
 }
 
 void handleSave() {
-  if (server.hasArg("ssid") && server.hasArg("psk")) {
+  if (server.hasArg("ssid") && server.hasArg("psk") && server.hasArg("ntp")) {
     String ssid = server.arg("ssid");
-    String psk = server.arg("psk");
+    String psk  = server.arg("psk");
+    String ntp  = server.arg("ntp");
 
-    Serial.printf("SSID : %s\nPSK  : %s\n", ssid.c_str(), psk.c_str());
+    Serial.printf("SSID : %s\nPSK  : %s\nNTP Server : %s\n", ssid.c_str(), psk.c_str(), ntp.c_str());
 
     prefs.begin("wifi", false);
     prefs.putString("ssid", ssid);
     prefs.putString("psk", psk);
+    prefs.putString("ntp", ntp);
     prefs.end();
 
     server.send(200, "text/html", "Your SSID and PSK were successfully saved.<br>Prease reboot the system.");
