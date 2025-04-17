@@ -1,6 +1,7 @@
 #include <WiFi.h>
 #include <WebServer.h>
 #include <Preferences.h>
+#include <time.h>
 
 /* Wi-Fi アクセスポイントの設定 */
 #define MY_SSID "2U-NTP-Clock-setup"
