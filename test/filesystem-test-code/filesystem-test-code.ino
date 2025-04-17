@@ -25,6 +25,7 @@ const char* htmlPage = R"rawliteral(
   <form action="/save" method="POST">
     SSID: <input type="text" name="ssid"><br>
     PSK: <input type="password" name="psk"><br>
+    NTP Server: <input type="next" name="ntp" value="ntp.nict.jp"><br>
     <input type="submit" value="save">
   </form>
 </body>
@@ -99,7 +100,11 @@ void handleSave() {
     prefs.putString("ntp", ntp);
     prefs.end();
 
-    server.send(200, "text/html", "Your SSID and PSK were successfully saved.<br>Prease reboot the system.");
+    server.send(200, "text/html", "Setting data were successfully saved.<br>The system will restart soon...");
+
+    delay(2000);
+
+    ESP.restart();
   } else {
     server.send(400, "text/plain", "Invalid Access.");
   }
