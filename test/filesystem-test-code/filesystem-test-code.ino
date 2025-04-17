@@ -44,12 +44,49 @@ Preferences prefs;
 
 void setup() {
   Serial.begin(BAUDRATE);
-  wifi_setup();
-  server_setup();
+
+  prefs.begin("config", true);
+
+  String ssid = prefs.getString("ssid", "");
+  String psk  = prefs.getString("psk" , "");
+  String ntp  = prefs.getString("ntp" , "");
+  prefs.end();
+
+  if(ssid == "" || psk == "" || ntp == "") {
+    Serial.print("No any config found. Start configuration Web-UI.\n");
+    wifi_setup();
+    server_setup();
+  }else {
+    Serial.print("Try to connect with saved config.\n");
+
+    WiFi.begin(ssid.c_str(), psk.c_str());
+
+    uint32_t t = millis();
+
+    while(WiFi.status() != WL_CONNECTED && millis() - t < 15000) {
+      delay(500); Serial.print(".");
+    }
+
+    if(WiFi.status() == WL_CONNECTED) {
+      Serial.print("\nSuccessed to connect to your network!\n");
+      Serial.print("My IP : "); Serial.println(WiFi.localIP());
+      Serial.print("NTP Server Address : "); Serial.println(ntp);
+      get_time_from_server(ntp.c_str());
+    }else {
+      Serial.print("Failed to connect to your network.\nPlease setup again...\n");
+      prefs.begin("config", false);
+      prefs.clear();
+      prefs.end();
+
+      delay(1000);
+
+      ESP.restart();
+    }
+  }
 }
 
 void loop() {
-  server.handleClient();
+  if(WiFi.getMode() == WIFI_AP) server.handleClient();
 }
 
 void wifi_setup(void) {
@@ -72,7 +109,7 @@ void wifi_setup(void) {
   }
   
   Serial.print("Wi-Fi Setup done!\n");
-  Serial.printf("IP Address of this Access Point : %s\n", WiFi.softAPIP().toString().c_str());
+  Serial.printf("IP Address of Web UI : %s\n", WiFi.softAPIP().toString().c_str());
 
   return;
 }
@@ -95,13 +132,13 @@ void handleSave() {
 
     Serial.printf("SSID : %s\nPSK  : %s\nNTP Server : %s\n", ssid.c_str(), psk.c_str(), ntp.c_str());
 
-    prefs.begin("wifi", false);
+    prefs.begin("config", false);
     prefs.putString("ssid", ssid);
-    prefs.putString("psk", psk);
-    prefs.putString("ntp", ntp);
+    prefs.putString("psk" , psk);
+    prefs.putString("ntp" , ntp);
     prefs.end();
 
-    server.send(200, "text/html", "Setting data were successfully saved.<br>The system will restart soon...");
+    server.send(200, "text/html", "Setting data were successfully saved.<br>The system will automatically restart soon...");
 
     delay(2000);
 
@@ -110,3 +147,18 @@ void handleSave() {
     server.send(400, "text/plain", "Invalid Access.");
   }
 }
+
+void get_time_from_server(const char* ntpServer) {
+  configTime(0, 0, ntpServer);
+
+  struct tm timeinfo;
+  if (!getLocalTime(&timeinfo)) {
+    Serial.print("Failed to get time...\n");
+    return;
+  }
+
+  time_t now = time(NULL);
+  Serial.print("UNIX Time : ");
+  Serial.println(now);
+}
+
