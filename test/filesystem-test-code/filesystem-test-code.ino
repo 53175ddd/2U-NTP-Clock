@@ -29,16 +29,16 @@ const char* htmlPage = R"rawliteral(
 <html>
 <head>
   <meta charset="UTF-8">
-  <title>Welcome to Setup Page!</title>
+  <title>初期設定</title>
 </head>
 <body>
-  <h2>Wi-Fi Connection Setting</h2>
+  <h2>Wi-Fi 接続 / NTP サーバアドレス / タイムゾーン設定</h2>
   <form action="/save" method="POST">
     SSID: <input type="text" name="ssid"><br>
     PSK: <input type="password" name="psk"><br>
-    NTP Server: <input type="next" name="ntp" value="ntp.nict.jp"><br>
-    Time Zone Setting: <input type="next" name="tz" value="JST-9"><br>
-    <input type="submit" value="save">
+    NTP サーバアドレス: <input type="next" name="ntp" value="ntp.nict.jp"><br>
+    タイムゾーン: <input type="next" name="tz" value="JST-9"><br>
+    <input type="submit" value="保存">
   </form>
 </body>
 </html>
@@ -67,11 +67,11 @@ void setup() {
   prefs.end();
 
   if(ssid == "" || psk == "" || ntp == "" || tz == "") {
-    Serial.print("No any config found. Start configuration Web-UI.\n");
+    Serial.print("保存された設定が見つかりません。初期設定用 Web サーバを実行します。\n");
     wifi_setup();
     server_setup();
   }else {
-    Serial.print("Try to connect with saved config.\n");
+    Serial.print("保存されている設定で接続を試みます。\n");
 
     WiFi.begin(ssid.c_str(), psk.c_str());
 
@@ -82,12 +82,12 @@ void setup() {
     }
 
     if(WiFi.status() == WL_CONNECTED) {
-      Serial.print("\nSuccessed to connect to your network!\n");
-      Serial.print("My IP : "); Serial.println(WiFi.localIP());
       Serial.print("NTP Server Address : "); Serial.println(ntp);
       get_time_from_server(tz.c_str(), ntp.c_str());
+      Serial.print("\n接続に成功しました！\n");
+      Serial.print("取得した IP アドレス : "); Serial.println(WiFi.localIP());
     }else {
-      Serial.print("\nFailed to connect to your network.\nPlease setup again...\n");
+      Serial.print("\n接続に失敗しました。\n設定をやり直してください。再起動します。\n");
       prefs.begin("config", false);
       prefs.clear();
       prefs.end();
@@ -97,12 +97,13 @@ void setup() {
       ESP.restart();
     }
 
+    Serial.print("一度切断します。\n");
     WiFi.disconnect(true);
 
     Wire.begin(SDA, SCL);
 
     if(!rtc.begin()) {
-      Serial.print("No RTC module found...\nAutomatically restart the system soon...\n");
+      Serial.print("RTC モジュールが見つかりません。\nまもなく自動的に再起動します。\n");
 
       delay(500);
 
@@ -145,23 +146,24 @@ void wifi_setup(void) {
   WiFi.mode(WIFI_MODE_AP);
 
   if(WiFi.softAP(MY_SSID, MY_PSK)) {
-    Serial.print("Success to start AP.\n");
+    Serial.print("アクセスポイントの起動に成功しました。\n");
+    Serial.printf("SSID は \"%s\" 、PSK は \"%s\" です。\n", MY_SSID, MY_PSK);
   }else {
-    Serial.print("Failed to start AP...\n");
+    Serial.print("アクセスポイントの起動に失敗しました。\n");
 
     return;
   }
 
   if(WiFi.softAPConfig(local, gateway, subnet)) {
-    Serial.print("Success to configure.\n");
+    Serial.print("IP アドレスの設定が完了しました。\n");
   }else {
-    Serial.print("Failed to configure...\n");
+    Serial.print("IP アドレスの設定に失敗しました。\n");
 
     return;
   }
   
-  Serial.print("Wi-Fi Setup done!\n");
-  Serial.printf("IP Address of Web UI : %s\n", WiFi.softAPIP().toString().c_str());
+  Serial.print("Wi-Fi の設定が完了しました。\n");
+  Serial.printf("設定用 Web サーバのアドレスは http://%s です。\n", WiFi.softAPIP().toString().c_str());
 
   return;
 }
@@ -170,7 +172,7 @@ void server_setup(void) {
   server.on("/", handleRoot);
   server.on("/save", HTTP_POST, handleSave);
   server.begin();
-  Serial.print("Web UI setup done.\n");
+  Serial.print("Web UI の設定が完了しました。\n");
 }
 
 void handleRoot() {
@@ -184,7 +186,7 @@ void handleSave() {
     String ntp  = server.arg("ntp");
     String tz   = server.arg("tz");
 
-    Serial.printf("SSID : %s\nPSK  : %s\nNTP Server : %s\n", ssid.c_str(), psk.c_str(), ntp.c_str());
+    Serial.printf("以下の内容で設定を保存します。\nSSID => %s\nPSK => %s\nNTP サーバアドレス => %s\nタイムゾーン => %s\n", ssid.c_str(), psk.c_str(), ntp.c_str(), tz.c_str());
 
     prefs.begin("config", false);
     prefs.putString("ssid", ssid);
@@ -193,7 +195,7 @@ void handleSave() {
     prefs.putString("tz"  , tz);
     prefs.end();
 
-    server.send(200, "text/html", "Setting data were successfully saved.<br>The system will automatically restart soon...");
+    server.send(200, "text/html", "<!DOCTYPE html><html><head><meta charset=\"UTF-8\"><title>設定完了</title></head><body>入力された情報を保存しました。<br>まもなく再起動します。</body></html>");
 
     delay(2000);
 
@@ -222,9 +224,10 @@ void lock_rtc(void) {
   String ssid = prefs.getString("ssid", "");
   String psk  = prefs.getString("psk" , "");
   String ntp  = prefs.getString("ntp" , "ntp.nict.jp");
+  String tz   = prefs.getString("tz"  , "JST-9");
   prefs.end();
 
-  Serial.print("Try to connect with saved config.\n");
+  Serial.print("保存されている内容で接続を試みます。\n");
 
   WiFi.begin(ssid.c_str(), psk.c_str());
 
@@ -235,17 +238,17 @@ void lock_rtc(void) {
   }
 
   if(WiFi.status() == WL_CONNECTED) {
-    Serial.print("\nSuccessed to connect to your network!\n");
-    Serial.print("My IP : "); Serial.println(WiFi.localIP());
+    Serial.print("\n接続に成功しました！\n");
+    Serial.print("取得した IP アドレス : "); Serial.println(WiFi.localIP());
   }
 
-  configTzTime("JST-9", ntp.c_str());
+  configTzTime(tz.c_str(), ntp.c_str());
 
   struct tm time_info;
 
   if(getLocalTime(&time_info)) {
     rtc.adjust(DateTime(time_info.tm_year + 1900, time_info.tm_mon + 1, time_info.tm_mday, time_info.tm_hour, time_info.tm_min, time_info.tm_sec));
-    Serial.print("Sync time to RTC.\n");
+    Serial.print("RTC の時刻を更新しました。\n");
   }
 
   WiFi.disconnect(true);
