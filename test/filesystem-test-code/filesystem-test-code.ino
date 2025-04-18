@@ -2,6 +2,8 @@
 #include <WebServer.h>
 #include <Preferences.h>
 #include <time.h>
+#include <Wire.h>
+#include <RTClib.h>
 
 /* Wi-Fi アクセスポイントの設定 */
 #define MY_SSID "2U-NTP-Clock-setup"
@@ -12,6 +14,14 @@
 
 /* デバッグ通信の速度を定義 */
 #define BAUDRATE 115200
+
+/* I2C モジュールのポート定義 */
+#define SDA 20
+#define SCL 21
+#define SQW 40
+
+/* RTC のアドレス */
+#define DS1307_I2C_ADDR 0x68
 
 /* Web ページのテンプレート */
 const char* htmlPage = R"rawliteral(
@@ -42,11 +52,13 @@ IPAddress subnet(255, 255, 255, 0);
 WebServer server(WEBSERVER_PORT);
 Preferences prefs;
 
+/* RTC 関係 */
+RTC_DS1307 rtc;
+
 void setup() {
   Serial.begin(BAUDRATE);
 
   prefs.begin("config", true);
-
   String ssid = prefs.getString("ssid", "");
   String psk  = prefs.getString("psk" , "");
   String ntp  = prefs.getString("ntp" , "");
@@ -63,7 +75,7 @@ void setup() {
 
     uint32_t t = millis();
 
-    while(WiFi.status() != WL_CONNECTED && millis() - t < 15000) {
+    while(WiFi.status() != WL_CONNECTED && millis() - t < 10000) {
       delay(500); Serial.print(".");
     }
 
@@ -82,11 +94,47 @@ void setup() {
 
       ESP.restart();
     }
+
+    WiFi.disconnect(true);
+
+    Wire.begin(SDA, SCL);
+
+    if(!rtc.begin()) {
+      Serial.print("No RTC module found...\nAutomatically restart the system soon...\n");
+
+      delay(500);
+
+      ESP.restart();
+    }
+
+    lock_rtc();
+
+    Wire.beginTransmission(DS1307_I2C_ADDR);
+    Wire.write(0x07);
+    Wire.write(0b00010000);
+    Wire.endTransmission();
+
+    pinMode(SQW, INPUT);
   }
 }
 
 void loop() {
   if(WiFi.getMode() == WIFI_AP) server.handleClient();
+
+  static uint8_t sqw = 0;
+
+  sqw = (sqw << 1) + ((digitalRead(SQW) == HIGH) ? 0 : 1);
+
+  if((sqw & 0b00000011) == 0b01) {
+    DateTime now = rtc.now();
+
+    Serial.printf("%04d/%02d/%02d %02d:%02d:%02d\n", now.year(), now.month(), now.day(), now.hour(), now.minute(), now.second());
+  }
+
+  if((sqw & 0b00000011) == 0b10) {
+  }
+
+  delay(10);
 }
 
 void wifi_setup(void) {
@@ -148,11 +196,11 @@ void handleSave() {
   }
 }
 
-void get_time_from_server(const char* ntpServer) {
-  configTime(0, 0, ntpServer);
+void get_time_from_server(const char* server) {
+  configTzTime("JST-9", server);
 
-  struct tm timeinfo;
-  if (!getLocalTime(&timeinfo)) {
+  struct tm time_info;
+  if (!getLocalTime(&time_info)) {
     Serial.print("Failed to get time...\n");
     return;
   }
@@ -162,3 +210,36 @@ void get_time_from_server(const char* ntpServer) {
   Serial.println(now);
 }
 
+void lock_rtc(void) {
+  prefs.begin("config", true);
+  String ssid = prefs.getString("ssid", "");
+  String psk  = prefs.getString("psk" , "");
+  String ntp  = prefs.getString("ntp" , "ntp.nict.jp");
+  prefs.end();
+
+  Serial.print("Try to connect with saved config.\n");
+
+  WiFi.begin(ssid.c_str(), psk.c_str());
+
+  uint32_t t = millis();
+
+  while(WiFi.status() != WL_CONNECTED && millis() - t < 10000) {
+    delay(500); Serial.print(".");
+  }
+
+  if(WiFi.status() == WL_CONNECTED) {
+    Serial.print("\nSuccessed to connect to your network!\n");
+    Serial.print("My IP : "); Serial.println(WiFi.localIP());
+  }
+
+  configTzTime("JST-9", ntp.c_str());
+
+  struct tm time_info;
+
+  if(getLocalTime(&time_info)) {
+    rtc.adjust(DateTime(time_info.tm_year + 1900, time_info.tm_mon + 1, time_info.tm_mday, time_info.tm_hour, time_info.tm_min, time_info.tm_sec));
+    Serial.print("Sync time to RTC.\n");
+  }
+
+  WiFi.disconnect(true);
+}
