@@ -119,22 +119,24 @@ void setup() {
 }
 
 void loop() {
-  if(WiFi.getMode() == WIFI_AP) server.handleClient();
+  if(WiFi.getMode() == WIFI_AP) {
+    server.handleClient();
+  }else {
+    static uint8_t sqw = 0;
 
-  static uint8_t sqw = 0;
+    sqw = (sqw << 1) + ((digitalRead(SQW) == HIGH) ? 0 : 1);
 
-  sqw = (sqw << 1) + ((digitalRead(SQW) == HIGH) ? 0 : 1);
+    if((sqw & 0b00000011) == 0b01) {
+      DateTime now = rtc.now();
 
-  if((sqw & 0b00000011) == 0b01) {
-    DateTime now = rtc.now();
+      Serial.printf("%04d/%02d/%02d %02d:%02d:%02d\n", now.year(), now.month(), now.day(), now.hour(), now.minute(), now.second());
+    }
 
-    Serial.printf("%04d/%02d/%02d %02d:%02d:%02d\n", now.year(), now.month(), now.day(), now.hour(), now.minute(), now.second());
+    if((sqw & 0b00000011) == 0b10) {
+    }
+
+    delay(10);
   }
-
-  if((sqw & 0b00000011) == 0b10) {
-  }
-
-  delay(10);
 }
 
 void wifi_setup(void) {
@@ -166,6 +168,7 @@ void server_setup(void) {
   server.on("/", handleRoot);
   server.on("/save", HTTP_POST, handleSave);
   server.begin();
+  Serial.print("Web UI setup done.\n");
 }
 
 void handleRoot() {
