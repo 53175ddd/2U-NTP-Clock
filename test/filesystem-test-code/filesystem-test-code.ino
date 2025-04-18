@@ -87,7 +87,7 @@ void setup() {
       Serial.print("NTP Server Address : "); Serial.println(ntp);
       get_time_from_server(tz.c_str(), ntp.c_str());
     }else {
-      Serial.print("Failed to connect to your network.\nPlease setup again...\n");
+      Serial.print("\nFailed to connect to your network.\nPlease setup again...\n");
       prefs.begin("config", false);
       prefs.clear();
       prefs.end();
