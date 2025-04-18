@@ -82,8 +82,6 @@ void setup() {
     }
 
     if(WiFi.status() == WL_CONNECTED) {
-      Serial.print("NTP Server Address : "); Serial.println(ntp);
-      get_time_from_server(tz.c_str(), ntp.c_str());
       Serial.print("\n接続に成功しました！\n");
       Serial.print("取得した IP アドレス : "); Serial.println(WiFi.localIP());
     }else {
@@ -203,20 +201,6 @@ void handleSave() {
   } else {
     server.send(400, "text/plain", "Invalid Access.");
   }
-}
-
-void get_time_from_server(const char* tz, const char* server) {
-  configTzTime("JST-9", server);
-
-  struct tm time_info;
-  if (!getLocalTime(&time_info)) {
-    Serial.print("Failed to get time...\n");
-    return;
-  }
-
-  time_t now = time(NULL);
-  Serial.print("UNIX Time : ");
-  Serial.println(now);
 }
 
 void lock_rtc(void) {
