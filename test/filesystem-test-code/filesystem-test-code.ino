@@ -37,6 +37,7 @@ const char* htmlPage = R"rawliteral(
     SSID: <input type="text" name="ssid"><br>
     PSK: <input type="password" name="psk"><br>
     NTP Server: <input type="next" name="ntp" value="ntp.nict.jp"><br>
+    Time Zone Setting: <input type="next" name="tz" value="JST-9"><br>
     <input type="submit" value="save">
   </form>
 </body>
@@ -62,9 +63,10 @@ void setup() {
   String ssid = prefs.getString("ssid", "");
   String psk  = prefs.getString("psk" , "");
   String ntp  = prefs.getString("ntp" , "");
+  String tz   = prefs.getString("tz"  , "");
   prefs.end();
 
-  if(ssid == "" || psk == "" || ntp == "") {
+  if(ssid == "" || psk == "" || ntp == "" || tz == "") {
     Serial.print("No any config found. Start configuration Web-UI.\n");
     wifi_setup();
     server_setup();
@@ -83,7 +85,7 @@ void setup() {
       Serial.print("\nSuccessed to connect to your network!\n");
       Serial.print("My IP : "); Serial.println(WiFi.localIP());
       Serial.print("NTP Server Address : "); Serial.println(ntp);
-      get_time_from_server(ntp.c_str());
+      get_time_from_server(tz.c_str(), ntp.c_str());
     }else {
       Serial.print("Failed to connect to your network.\nPlease setup again...\n");
       prefs.begin("config", false);
@@ -176,10 +178,11 @@ void handleRoot() {
 }
 
 void handleSave() {
-  if (server.hasArg("ssid") && server.hasArg("psk") && server.hasArg("ntp")) {
+  if (server.hasArg("ssid") && server.hasArg("psk") && server.hasArg("ntp") && server.hasArg("tz")) {
     String ssid = server.arg("ssid");
     String psk  = server.arg("psk");
     String ntp  = server.arg("ntp");
+    String tz   = server.arg("tz");
 
     Serial.printf("SSID : %s\nPSK  : %s\nNTP Server : %s\n", ssid.c_str(), psk.c_str(), ntp.c_str());
 
@@ -187,6 +190,7 @@ void handleSave() {
     prefs.putString("ssid", ssid);
     prefs.putString("psk" , psk);
     prefs.putString("ntp" , ntp);
+    prefs.putString("tz"  , tz);
     prefs.end();
 
     server.send(200, "text/html", "Setting data were successfully saved.<br>The system will automatically restart soon...");
@@ -199,7 +203,7 @@ void handleSave() {
   }
 }
 
-void get_time_from_server(const char* server) {
+void get_time_from_server(const char* tz, const char* server) {
   configTzTime("JST-9", server);
 
   struct tm time_info;
