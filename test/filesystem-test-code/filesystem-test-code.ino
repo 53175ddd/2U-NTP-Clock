@@ -16,9 +16,31 @@
 #define BAUDRATE 115200
 
 /* I2C モジュールのポート定義 */
-#define SDA 20
-#define SCL 21
-#define SQW 40
+#define SDA 13
+#define SCL 15
+#define SQW 14
+
+/* IO の定義 */
+#define SW_UP    5
+#define SW_DOWN  1
+#define SW_LEFT  2
+#define SW_RIGHT 4
+#define SW_OK    3
+
+#define ETH_DETECT  7
+#define ETH_RESET   8
+#define ETH_MOSI   11
+#define ETH_MISO    9
+#define ETH_CLK    12
+#define ETH_CS     10
+
+#define HC595_SER   27
+#define HC595_SRCLR 42
+#define HC595_RCLK  41
+#define HC595_OE    40
+#define HC595_SRCLK 39
+
+#define DOT_DISP 6
 
 /* RTC のアドレス */
 #define DS1307_I2C_ADDR 0x68
@@ -108,6 +130,28 @@ void setup() {
       ESP.restart();
     }
 
+    /* IO の初期設定 */   
+    // pinMode(SW_UP   , INPUT_PULLUP);
+    // pinMode(SW_DOWN , INPUT_PULLUP);
+    // pinMode(SW_LEFT , INPUT_PULLUP);
+    // pinMode(SW_RIGHT, INPUT_PULLUP);
+    // pinMode(SW_OK   , INPUT_PULLUP);
+
+    // pinMode(ETH_DETECT,  INPUT_PULLUP);
+    // pinMode(ETH_RESET , OUTPUT);
+    // pinMode(ETH_MOSI  , OUTPUT);
+    // pinMode(ETH_MISO  , OUTPUT);
+    // pinMode(ETH_CLK   , OUTPUT);
+    // pinMode(ETH_CS    , OUTPUT);
+
+    // pinMode(HC595_SER  , OUTPUT);
+    // pinMode(HC595_SRCLR, OUTPUT);
+    // pinMode(HC595_RCLK , OUTPUT);
+    // pinMode(HC595_OE   , OUTPUT);
+    // pinMode(HC595_SRCLK, OUTPUT);
+
+    pinMode(DOT_DISP, OUTPUT);
+
     lock_rtc();
 
     Wire.beginTransmission(DS1307_I2C_ADDR);
@@ -130,14 +174,17 @@ void loop() {
     if((sqw & 0b00000011) == 0b01) {
       DateTime now = rtc.now();
 
+      digitalWrite(DOT_DISP, HIGH);
+
       Serial.printf("%04d/%02d/%02d %02d:%02d:%02d\n", now.year(), now.month(), now.day(), now.hour(), now.minute(), now.second());
     }
 
     if((sqw & 0b00000011) == 0b10) {
+      digitalWrite(DOT_DISP,  LOW);
     }
-
-    delay(10);
   }
+  
+  delay(5);
 }
 
 void wifi_setup(void) {
