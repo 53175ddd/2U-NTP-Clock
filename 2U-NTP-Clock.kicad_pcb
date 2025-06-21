@@ -72861,7 +72861,7 @@
 			(justify left)
 		)
 	)
-	(gr_text "2U NTP Clock Ver-0.2\nMOS@53175DDD"
+	(gr_text "2U NTP Clock Ver-0.3\nMOS@53175DDD"
 		(at 474.98 238.506 0)
 		(layer "F.SilkS")
 		(uuid "260fd3c1-a3f1-4fa4-a694-8437d7aecdd4")
